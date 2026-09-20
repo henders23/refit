@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refit AI — Option C, Monolith</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0c0e; --ink:#ffffff; --muted:#9ea1a6; --line:#26282c;
+  --paper:#f3f3f1; --paper-ink:#0b0c0e; --paper-muted:#5c5f64; --paper-line:#d6d6d2;
+  --display:"Bricolage Grotesque","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-0.03em;line-height:1}
+p{margin:0}
+.wrap{width:min(1280px,100% - 96px);margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 30px;border:2px solid currentColor;border-radius:0;font-size:16px;font-weight:500;cursor:pointer;font-family:var(--body);background:transparent;color:inherit}
+.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}.btn.solid:hover{background:#d9d9d9;border-color:#d9d9d9;color:var(--bg)}
+.paper .btn.solid{background:var(--paper-ink);color:var(--paper);border-color:var(--paper-ink)}
+.paper .btn.solid:hover{background:#333;border-color:#333}
+.paper .btn:hover{background:var(--paper-ink);color:var(--paper);border-color:var(--paper-ink)}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
+.brand{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-0.03em}
+.nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:15px;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+
+.hero{padding:96px 0 112px}
+.hero h1{font-size:clamp(56px,10.5vw,152px);line-height:0.92;letter-spacing:-0.045em;text-wrap:balance}
+.hero h1 span{color:var(--muted)}
+.hero .under{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:48px;align-items:end;margin-top:56px;padding-top:32px;border-top:2px solid var(--ink)}
+.hero .lede{font-size:21px;color:var(--muted);max-width:42ch}
+.hero .actions{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap}
+
+.paper{background:var(--paper);color:var(--paper-ink)}
+.paper .muted{color:var(--paper-muted)}
+.section{padding:112px 0}
+.section h2{font-size:clamp(40px,6vw,88px);letter-spacing:-0.04em;max-width:12ch}
+.section .intro{font-size:20px;max-width:46ch;margin-top:24px}
+
+.areas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin-top:64px;background:var(--paper-line)}
+.area{background:var(--paper);padding:32px 28px 40px;display:flex;flex-direction:column;gap:14px;min-height:280px}
+.area h3{font-size:30px;letter-spacing:-0.03em}
+.area p{color:var(--paper-muted);font-size:16px}
+
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 64px;margin-top:64px}
+.step{border-top:2px solid var(--ink);padding-top:24px;display:flex;flex-direction:column;gap:12px}
+.step .n{font-family:var(--display);font-weight:700;font-size:72px;line-height:0.9;letter-spacing:-0.04em}
+.step h3{font-size:28px;letter-spacing:-0.03em}
+.step p{color:var(--muted);font-size:16px;max-width:44ch}
+
+.own{padding:128px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.own h2{font-size:clamp(48px,8vw,120px);letter-spacing:-0.045em;line-height:0.95;max-width:10ch}
+.own h2 span{color:var(--muted)}
+.own .list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:64px}
+.own .item{display:flex;flex-direction:column;gap:8px;font-size:16px}
+.own .item b{font-weight:500;font-size:18px}
+.own .item span{color:var(--muted)}
+
+.example .ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--paper-line);margin-top:64px}
+.example .col{background:var(--paper);padding:36px 32px 44px;display:flex;flex-direction:column;gap:20px}
+.example h3{font-size:36px;letter-spacing:-0.035em}
+.example ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:17px}
+.example .before ul{color:var(--paper-muted)}
+.example li{display:grid;grid-template-columns:24px 1fr;gap:8px}
+.example li::before{content:"";width:12px;height:2px;background:currentColor;margin-top:12px}
+.note{margin-top:20px;font-size:15px;color:var(--paper-muted)}
+
+.about .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px}
+.about p{font-size:19px;color:var(--muted);max-width:56ch}
+.about p + p{margin-top:20px}
+.about strong{color:var(--ink);font-weight:500}
+
+.contact{padding:128px 0 96px}
+.contact h2{font-size:clamp(48px,9vw,140px);letter-spacing:-0.045em;line-height:0.92}
+.contact .row{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:48px;padding-top:32px;border-top:2px solid var(--ink);flex-wrap:wrap}
+.contact .email{font-family:var(--display);font-weight:500;font-size:28px;color:var(--muted)}
+
+.footer{padding:28px 0 40px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+.footer ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+
+@media (max-width:960px){
+  .wrap{width:min(1280px,100% - 48px)}
+  .hero{padding:64px 0 80px}
+  .hero .under{grid-template-columns:1fr;gap:28px}
+  .hero .actions{justify-content:flex-start}
+  .section,.own,.contact{padding:80px 0}
+  .areas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:1fr;gap:40px}
+  .own .list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about .grid{grid-template-columns:1fr;gap:28px}
+}
+@media (max-width:640px){
+  .wrap{width:min(1280px,100% - 32px)}
+  .nav ul{display:none}
+  .areas,.example .ba,.own .list{grid-template-columns:1fr}
+  .area{min-height:0}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top">Refit AI</a>
+    <ul>
+      <li><a href="#what">What we redesign</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#ownership">Ownership</a></li>
+      <li><a href="#example">Example</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="btn" href="#contact">Book a conversation</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="wrap hero">
+    <h1>Redesign the way your business runs. <span>Own every part of it.</span></h1>
+    <div class="under">
+      <p class="lede">Refit AI works with businesses to rebuild the processes that run them: operations, marketing, customer handling and billing. You choose where to start. We redesign it together. Everything we build belongs to you.</p>
+      <div class="actions">
+        <a class="btn solid" href="#contact">Book a conversation</a>
+        <a class="btn" href="#how">How it works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper" id="what">
+    <div class="wrap section">
+      <h2>What we redesign</h2>
+      <p class="intro muted">Most businesses run on a handful of processes that have grown up over years. We take them one at a time, in the order that matters most to you.</p>
+      <div class="areas">
+        <article class="area"><h3>Operations</h3><p>Scheduling, quoting, job tracking and the handoffs between people. The work that keeps the business moving and quietly eats the week.</p></article>
+        <article class="area"><h3>Marketing</h3><p>Enquiry follow-up, content production and campaign planning that happen on schedule, not when someone has a spare hour.</p></article>
+        <article class="area"><h3>Customers</h3><p>Onboarding, communication, support and retention. How a customer is treated from first contact to the last invoice.</p></article>
+        <article class="area"><h3>Billing</h3><p>Invoicing, payment chasing, reconciliation and reporting. Money in on time, with less chasing and fewer surprises.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="how">
+    <h2>How it works</h2>
+    <p class="intro" style="color:var(--muted)">A short, structured engagement with a clear end. No platform to buy and no retainer to sign.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Tell us what you want to improve</h3><p>A conversation about where the work is slow, repetitive or falling through the cracks. You set the priorities.</p></div>
+      <div class="step"><div class="n">2</div><h3>We map the process as it is</h3><p>Who does what, in which tools, and where the time goes. Written down plainly so everyone sees the same picture.</p></div>
+      <div class="step"><div class="n">3</div><h3>We redesign it together</h3><p>Where AI genuinely helps, we put it in. Where it does not, we leave it out. You approve every change before it is made.</p></div>
+      <div class="step"><div class="n">4</div><h3>You own the result</h3><p>Documentation, prompts, tools and accounts are handed over in full. Your team can run it, change it or extend it without us.</p></div>
+    </div>
+  </section>
+
+  <section class="own" id="ownership">
+    <div class="wrap">
+      <h2>Full ownership. <span>Not a subscription.</span></h2>
+      <div class="list">
+        <div class="item"><b>Accounts in your name</b><span>Nothing sits behind our login.</span></div>
+        <div class="item"><b>Everything documented</b><span>Written so a new hire could follow it.</span></div>
+        <div class="item"><b>Every decision explained</b><span>Why this tool, why this step, what to do if it breaks.</span></div>
+        <div class="item"><b>No ongoing fee</b><span>Support is available if you want it. It is never a condition.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper example" id="example">
+    <div class="wrap section">
+      <h2>What a redesign looks like</h2>
+      <p class="intro muted">A garden design studio, before and after one engagement.</p>
+      <div class="ba">
+        <div class="col before">
+          <h3>Before</h3>
+          <ul>
+            <li>Enquiries arrive by email, phone and Instagram and are tracked in someone's head</li>
+            <li>Every quote is written from a blank page</li>
+            <li>Site notes live in notebooks and photo rolls</li>
+            <li>Invoices go out late and are chased by hand</li>
+          </ul>
+        </div>
+        <div class="col after">
+          <h3>After</h3>
+          <ul>
+            <li>One intake form and a structured brief for every enquiry</li>
+            <li>Quotes drafted from past jobs, reviewed and sent in minutes</li>
+            <li>Site notes transcribed and filed against the client automatically</li>
+            <li>Invoices and reminders sent on schedule, with the designer's time back on design</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">[Illustrative example. Replace with a real engagement and the client's own words.]</p>
+    </div>
+  </section>
+
+  <section class="wrap section about" id="about">
+    <div class="grid">
+      <h2>About</h2>
+      <div>
+        <p><strong>Refit AI is run by [YOUR NAME].</strong> [One or two sentences on your background: the businesses you have worked with, the kind of problems you are drawn to, and why you work this way.]</p>
+        <p>The name is deliberate. A refit keeps the hull and replaces what no longer serves it. We do not ask businesses to start again. We take what already works and rebuild the rest around it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap contact" id="contact">
+    <h2>Start with a conversation.</h2>
+    <div class="row">
+      <a class="email" href="mailto:hello@example.com">[YOUR EMAIL]</a>
+      <a class="btn solid" href="mailto:hello@example.com">Book a conversation</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap footer">
+  <span>Refit AI. [YOUR LOCATION].</span>
+  <ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">LinkedIn</a></li></ul>
+</footer>
+
+</body>
+</html>
