@@ -1,3 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" aria-label="Refit AI mark">
-  <path d="M16 4 H28 V28 H16 A12 12 0 0 1 16 4 Z" fill="currentColor" stroke="none"/>
+  <rect x="4" y="11" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"/><rect x="11" y="4" width="17" height="17" fill="currentColor" stroke="none"/>
 </svg>
