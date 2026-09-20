@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Refit AI</title>
+<meta name="description" content="Refit AI works with sole traders and small businesses to rebuild the processes that run them around AI. Fixed fee, trained on your real work, owned by you from day one.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -30,23 +32,26 @@ p{margin:0}
 .nav{display:grid;grid-template-columns:3fr 6fr 3fr;align-items:center;border-bottom:1px solid var(--line)}
 .nav > *{padding:22px 32px;border-right:1px solid var(--line);min-height:72px;display:flex;align-items:center}
 .nav > *:last-child{border-right:0;justify-content:flex-end}
-.brand{font-weight:600;font-size:18px;letter-spacing:-0.02em}
+.brand{display:inline-flex;align-items:center;gap:12px;font-weight:600;font-size:18px;letter-spacing:-0.02em}
+.brand:hover{text-decoration:none}
+.mark{width:28px;height:28px;flex:none;display:block}
 .nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:15px}
 .nav ul a{color:var(--muted)}.nav ul a:hover{color:var(--ink);text-decoration:none}
 
 .hero{grid-template-columns:8fr 4fr}
-.hero .cell{padding:96px 32px 72px}
+.hero .lead{padding:72px 32px 64px;display:flex;flex-direction:column;justify-content:center}
 .hero h1{font-size:clamp(44px,5.6vw,80px);line-height:1;letter-spacing:-0.035em;max-width:14ch}
-.hero .lede{font-size:19px;color:var(--muted);max-width:40ch;margin-top:32px}
-.hero .actions{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
-.hero .facts{display:flex;flex-direction:column;justify-content:flex-end;gap:0;padding:0}
-.hero .facts div{padding:20px 32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px}
+.hero .lede{font-size:19px;color:var(--muted);max-width:44ch;margin-top:28px}
+.hero .actions{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.hero .facts{display:flex;flex-direction:column;padding:0}
+.hero .facts div{flex:1 1 0;padding:24px 32px;border-top:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;gap:6px}
 .hero .facts div:first-child{border-top:0}
-.hero .facts b{font-weight:500}
+.hero .facts b{font-weight:500;font-size:17px;line-height:1.3}
 
 .head{grid-template-columns:4fr 8fr}
 .head h2{font-size:clamp(30px,3.2vw,44px);line-height:1.1}
-.head .intro{color:var(--muted);font-size:17px;max-width:52ch}
+.head .intro{color:var(--muted);font-size:17px;max-width:54ch}
+.head .intro + .intro{margin-top:12px}
 
 .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .grid4 .cell{padding:32px;min-height:260px;display:flex;flex-direction:column;gap:12px}
@@ -55,10 +60,11 @@ p{margin:0}
 .grid4 .mono{margin-top:auto;padding-top:20px}
 
 .steps .cell{padding:0}
-.step{display:grid;grid-template-columns:120px 5fr 6fr;border-bottom:1px solid var(--line)}
+.step{display:grid;grid-template-columns:168px 5fr 6fr;border-bottom:1px solid var(--line)}
 .step:last-child{border-bottom:0}
 .step > *{padding:28px 32px}
 .step > * + *{border-left:1px solid var(--line)}
+.step .id{display:flex;flex-direction:column;gap:6px}
 .step h3{font-size:22px;letter-spacing:-0.02em}
 .step p{color:var(--muted);font-size:15px}
 .step .out{color:var(--ink);font-size:15px}
@@ -67,9 +73,10 @@ p{margin:0}
 .own{background:var(--panel)}
 .own .cell{padding:72px 32px}
 .own h2{font-size:clamp(34px,4vw,56px);line-height:1.05;letter-spacing:-0.03em;max-width:16ch}
+.own .sub{color:var(--muted);font-size:17px;max-width:38ch;margin-top:20px}
 .own table{width:100%;border-collapse:collapse;font-size:15px}
 .own td,.own th{padding:16px 0;border-top:1px solid var(--line);text-align:left;vertical-align:top;font-weight:400}
-.own th{color:var(--muted);font-weight:400;width:40%}
+.own th{color:var(--muted);font-weight:400;width:36%;padding-right:24px}
 .own tr:last-child td,.own tr:last-child th{border-bottom:1px solid var(--line)}
 
 .example .col{padding:32px;display:flex;flex-direction:column;gap:14px}
@@ -79,6 +86,10 @@ p{margin:0}
 .example li:last-child{border-bottom:1px solid var(--line)}
 .example li .mono{padding-top:2px}
 .example .after li{color:var(--ink)}
+.built{grid-template-columns:repeat(4,minmax(0,1fr))}
+.built .cell{display:flex;flex-direction:column;gap:8px;padding:24px 32px}
+.built b{font-weight:500;font-size:16px}
+.built span{color:var(--muted);font-size:14px}
 .note{grid-column:1/-1;padding:16px 32px;font-family:var(--mono);font-size:13px;color:var(--muted)}
 
 .about p{color:var(--muted);font-size:17px;max-width:60ch}
@@ -87,14 +98,16 @@ p{margin:0}
 
 .contact .cell{padding:96px 32px}
 .contact h2{font-size:clamp(40px,5.4vw,72px);line-height:1;letter-spacing:-0.035em}
+.contact .sub{color:var(--muted);font-size:17px;max-width:48ch;margin-top:20px}
 .contact .email{font-family:var(--mono);font-size:18px;color:var(--muted);display:block;margin-top:28px}
 .contact .side{display:flex;align-items:flex-end;justify-content:flex-end}
 
 .footer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));font-family:var(--mono);font-size:13px;color:var(--muted)}
-.footer > *{padding:20px 32px;border-right:1px solid var(--line)}
+.footer > *{padding:20px 32px;border-right:1px solid var(--line);display:flex;align-items:center;gap:12px}
 .footer > *:last-child{border-right:0}
 .footer ul{list-style:none;margin:0;padding:0;display:flex;gap:20px}
 .footer a{color:var(--muted)}
+.footer .mark{width:20px;height:20px}
 
 @media (max-width:960px){
   .frame{width:min(1280px,100% - 40px)}
@@ -102,13 +115,13 @@ p{margin:0}
   .row > *{grid-column:auto !important}
   .own .cell:first-child,.example .col:first-child,.contact .cell:first-child{border-bottom:1px solid var(--line)}
   .own table th{width:34%}
-  .hero,.head,.grid4{grid-template-columns:1fr}
-  .grid4 .cell{min-height:0;border-right:0;border-bottom:1px solid var(--line)}
-  .grid4 .cell:last-child{border-bottom:0}
+  .grid4 .cell,.built .cell{min-height:0;border-right:0;border-bottom:1px solid var(--line)}
+  .grid4 .cell:last-child,.built .cell:last-child{border-bottom:0}
   .cell{border-right:0}
   .head .cell:first-child{border-bottom:1px solid var(--line)}
   .hero .facts{border-top:1px solid var(--line)}
-  .hero .cell{padding:64px 24px 48px}
+  .hero .facts div{padding:18px 24px}
+  .hero .lead{padding:56px 24px 48px}
   .step{grid-template-columns:1fr}
   .step > * + *{border-left:0;border-top:1px solid var(--line)}
   .own .cell,.contact .cell{padding:56px 24px}
@@ -131,154 +144,180 @@ p{margin:0}
 
 <header>
   <nav class="nav" aria-label="Primary">
-    <a class="brand" href="#top">Refit AI</a>
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="16" cy="16" r="12" stroke-width="1.5"/><path d="M16 4 A12 12 0 0 1 28 16" stroke-width="4"/></svg>
+      <span>Refit AI</span>
+    </a>
     <ul>
-      <li><a href="#what">What we redesign</a></li>
+      <li><a href="#what">What we refit</a></li>
       <li><a href="#how">How it works</a></li>
       <li><a href="#ownership">Ownership</a></li>
       <li><a href="#example">Example</a></li>
       <li><a href="#about">About</a></li>
     </ul>
-    <div><a class="btn" href="#contact">Book a conversation</a></div>
+    <div><a class="btn" href="#contact">Book a call</a></div>
   </nav>
 </header>
 
 <main id="top">
 
   <section class="row hero">
-    <div class="cell">
-      <h1>Business processes, redesigned around AI. Owned by you.</h1>
-      <p class="lede">Refit AI works with businesses to rebuild the processes that run them: operations, marketing, customer handling and billing. You choose where to start. We redesign it together. Everything we build belongs to you.</p>
+    <div class="cell lead">
+      <h1>Your business, refitted around AI. Owned entirely by you.</h1>
+      <p class="lede">Refit AI works with sole traders and small businesses to rebuild the processes that run them: operations, marketing, customers and billing. Not automation that replaces your judgement. Augmentation that removes the typing. Everything we build is yours from day one.</p>
       <div class="actions">
-        <a class="btn solid" href="#contact">Book a conversation</a>
+        <a class="btn solid" href="#contact">Book a call</a>
         <a class="btn" href="#how">How it works</a>
       </div>
     </div>
     <div class="cell facts">
-      <div><span class="mono">Engagement</span><b>Fixed scope, fixed end</b></div>
-      <div><span class="mono">Platform</span><b>None to buy</b></div>
-      <div><span class="mono">Ownership</span><b>Transferred in full</b></div>
-      <div><span class="mono">Retainer</span><b>Not required</b></div>
+      <div><span class="mono">Engagement</span><b>Six stages, fixed fee, clear end</b></div>
+      <div><span class="mono">Tools</span><b>One AI subscription, in your name</b></div>
+      <div><span class="mono">Training</span><b>Three sessions on your real work</b></div>
+      <div><span class="mono">Ownership</span><b>Yours from day one</b></div>
     </div>
   </section>
 
   <section class="row head" id="what">
-    <div class="cell"><h2>What we redesign</h2></div>
-    <div class="cell"><p class="intro">Most businesses run on a handful of processes that have grown up over years. We take them one at a time, in the order that matters most to you.</p></div>
+    <div class="cell"><h2>What we refit</h2></div>
+    <div class="cell">
+      <p class="intro">Almost every small business is the same pipeline with a craft in the middle: capture what happened, turn it into a structured document, communicate it to a customer. We rebuild that pipeline around two named AI assistants, a prompt library and templates, trained on your real material.</p>
+      <p class="intro">Built for businesses of one to five people: designers, trades, therapists, tutors, photographers, accountants, celebrants, caterers.</p>
+    </div>
   </section>
   <section class="row grid4">
     <article class="cell">
       <h3>Operations</h3>
-      <p>Scheduling, quoting, job tracking and the handoffs between people.</p>
+      <p>Site visits, consultations and job notes captured by voice or photo and turned into briefs, job sheets, quotes and schedules.</p>
       <span class="mono">01 / 04</span>
     </article>
     <article class="cell">
       <h3>Marketing</h3>
-      <p>Enquiry follow-up, content production and campaign planning that happen on schedule, not when someone has a spare hour.</p>
+      <p>Every finished job harvested into posts, case studies and updates. A monthly batch written in one sitting, in your voice.</p>
       <span class="mono">02 / 04</span>
     </article>
     <article class="cell">
       <h3>Customers</h3>
-      <p>Onboarding, communication, support and retention, from first contact to final invoice.</p>
+      <p>Same-day replies to enquiries, follow-up that actually happens, aftercare that brings people back, and reviews asked for at the right moment.</p>
       <span class="mono">03 / 04</span>
     </article>
     <article class="cell">
       <h3>Billing</h3>
-      <p>Invoicing, payment chasing, reconciliation and reporting. Money in on time with less chasing.</p>
+      <p>Proposals with staged fees and validity dates. A pipeline sheet that takes ten minutes a week. Nothing unquoted, unchased or undercharged.</p>
       <span class="mono">04 / 04</span>
     </article>
   </section>
 
   <section class="row head" id="how">
     <div class="cell"><h2>How it works</h2></div>
-    <div class="cell"><p class="intro">A short, structured engagement with a defined output at every stage.</p></div>
+    <div class="cell"><p class="intro">Six stages, a defined output at each, and a check-in four weeks after handover that ends the engagement. Fixed fee, never hourly. Half on appointment, half at the third training session.</p></div>
   </section>
   <section class="row steps">
     <div class="cell" style="grid-column:1/-1">
       <div class="step">
-        <div class="mono">Step 1</div>
-        <div><h3>Tell us what you want to improve</h3><p>A conversation about where the work is slow, repetitive or falling through the cracks. You set the priorities.</p></div>
-        <div class="out"><span class="mono">Output</span>A one-page brief naming the processes in scope and what better looks like.</div>
+        <div class="id"><span class="mono">Stage 1</span><span class="mono">30 min, free</span></div>
+        <div><h3>Qualify</h3><p>One call to establish fit. Talk me through what you actually did yesterday, hour by hour. If I cannot see two recoverable hours a week, I will say so and not take the job.</p></div>
+        <div class="out"><span class="mono">Output</span>A go or no-go, and a fee quote.</div>
       </div>
       <div class="step">
-        <div class="mono">Step 2</div>
-        <div><h3>We map the process as it is</h3><p>Who does what, in which tools, and where the time goes.</p></div>
-        <div class="out"><span class="mono">Output</span>A current-state map everyone in the business can read and correct.</div>
+        <div class="id"><span class="mono">Stage 2</span><span class="mono">90 min</span></div>
+        <div><h3>Audit</h3><p>Your last completed job walked through end to end, every document it generated, plus one real work episode recorded on your phone. We look for repetition, translation, leakage and friction.</p></div>
+        <div class="out"><span class="mono">Output</span>A workflow map: how it runs now and how it will run.</div>
       </div>
       <div class="step">
-        <div class="mono">Step 3</div>
-        <div><h3>We redesign it together</h3><p>Where AI genuinely helps, we put it in. Where it does not, we leave it out. You approve every change.</p></div>
-        <div class="out"><span class="mono">Output</span>The new process, running, with your team trained on it.</div>
+        <div class="id"><span class="mono">Stage 3</span><span class="mono">Half a day</span></div>
+        <div><h3>Design</h3><p>The platform chosen by running your most common task live on both major ones and letting you feel the difference. Two assistants specified: one that catches your thinking, one that speaks in your voice.</p></div>
+        <div class="out"><span class="mono">Output</span>Your guide: the one document that describes the new way of working.</div>
       </div>
       <div class="step">
-        <div class="mono">Step 4</div>
-        <div><h3>You own the result</h3><p>Documentation, prompts, tools and accounts are handed over in full.</p></div>
-        <div class="out"><span class="mono">Output</span>A handover pack your team can run, change or extend without us.</div>
+        <div class="id"><span class="mono">Stage 4</span><span class="mono">1 to 2 days</span></div>
+        <div><h3>Build</h3><p>Tone of voice captured first, from your own writing. Then the assistants, the prompt library and the templates, every one tested on your real material before training day.</p></div>
+        <div class="out"><span class="mono">Output</span>Assistants, prompt library, templates and a client questionnaire.</div>
+      </div>
+      <div class="step">
+        <div class="id"><span class="mono">Stage 5</span><span class="mono">3 × 90 min</span></div>
+        <div><h3>Train</h3><p>Watch one, drive one, take one home. You are at the keyboard from minute twenty, and homework always runs on a live job with a real customer.</p></div>
+        <div class="out"><span class="mono">Output</span>A competent, confident user. By session three a real customer has been through the system.</div>
+      </div>
+      <div class="step">
+        <div class="id"><span class="mono">Stage 6</span><span class="mono">30 min, then check-in</span></div>
+        <div><h3>Handover</h3><p>The playbook walked through, a weekly rhythm agreed, a check-in booked four weeks out. After the check-in, it is yours.</p></div>
+        <div class="out"><span class="mono">Output</span>A printed playbook: one card per workflow, kept by the kettle.</div>
       </div>
     </div>
   </section>
 
   <section class="row own" id="ownership">
-    <div class="cell" style="grid-column:span 5"><h2>Full ownership. Not a subscription.</h2></div>
+    <div class="cell" style="grid-column:span 5">
+      <h2>Independence, not dependency.</h2>
+      <p class="sub">The engagement is designed so that you do not need us afterwards. Referrals come because we left.</p>
+    </div>
     <div class="cell" style="grid-column:span 7">
       <table>
-        <tr><th>Accounts</th><td>Opened in your name. Nothing sits behind our login.</td></tr>
-        <tr><th>Prompts and workflows</th><td>Documented so a new hire could follow them.</td></tr>
-        <tr><th>Decisions</th><td>Explained in writing: why this tool, why this step, what to do if it breaks.</td></tr>
-        <tr><th>Ongoing fees</th><td>None required. Support is available if you want it and never a condition.</td></tr>
+        <tr><th>Accounts</th><td>Opened in your name and paid by you, from day one. Nothing sits behind our login.</td></tr>
+        <tr><th>Files</th><td>Live in your own storage, organised per project. The AI tool is a workbench, not a filing cabinet.</td></tr>
+        <tr><th>Your judgement</th><td>Every workflow keeps you signing off. The assistant types; you decide. Anything uncertain is flagged, never invented.</td></tr>
+        <tr><th>Scope</th><td>Named deliverables and a fixed session count. We configure consumer tools. We do not write code, build integrations or become your IT support.</td></tr>
+        <tr><th>Afterwards</th><td>The check-in ends the engagement. Further work is a new engagement, and a maintenance retainer exists only as a separate purchase.</td></tr>
       </table>
     </div>
   </section>
 
   <section class="row head" id="example">
-    <div class="cell"><h2>What a redesign looks like</h2></div>
-    <div class="cell"><p class="intro">A garden design studio, before and after one engagement.</p></div>
+    <div class="cell"><h2>What a refit looks like</h2></div>
+    <div class="cell"><p class="intro">A one-person garden design studio: modern, organic and Japanese-inspired gardens, and indoor miniature landscapes. Skilled work on site, and evenings lost to admin.</p></div>
   </section>
   <section class="row example">
     <div class="cell col before" style="grid-column:span 6">
       <h3>Before</h3>
       <ul>
-        <li><span class="mono">A</span><span>Enquiries arrive by email, phone and Instagram and are tracked in someone's head</span></li>
-        <li><span class="mono">B</span><span>Every quote is written from a blank page</span></li>
-        <li><span class="mono">C</span><span>Site notes live in notebooks and photo rolls</span></li>
-        <li><span class="mono">D</span><span>Invoices go out late and are chased by hand</span></li>
+        <li><span class="mono">A</span><span>Site visits captured in memory and a camera roll, written up days later</span></li>
+        <li><span class="mono">B</span><span>Every proposal, email and plant schedule written from a blank page</span></li>
+        <li><span class="mono">C</span><span>Finished gardens photographed and never posted</span></li>
+        <li><span class="mono">D</span><span>Proposals sent and not chased, past clients not contacted</span></li>
       </ul>
     </div>
     <div class="cell col after" style="grid-column:span 6">
       <h3>After</h3>
       <ul>
-        <li><span class="mono">A</span><span>One intake form and a structured brief for every enquiry</span></li>
-        <li><span class="mono">B</span><span>Quotes drafted from past jobs, reviewed and sent in minutes</span></li>
-        <li><span class="mono">C</span><span>Site notes transcribed and filed against the client automatically</span></li>
-        <li><span class="mono">D</span><span>Invoices and reminders sent on schedule</span></li>
+        <li><span class="mono">A</span><span>Talk the walk on site. Voice memo and photos become a structured site brief within 24 hours, with gaps marked for checking</span></li>
+        <li><span class="mono">B</span><span>Proposals, replies and schedules drafted in the designer's own voice from a two-page template, every plant verified by hand</span></li>
+        <li><span class="mono">C</span><span>Each finished project harvested into a caption, a case study and a care calendar in fifteen minutes</span></li>
+        <li><span class="mono">D</span><span>A Friday half-hour: pipeline updated, day-five nudges sent, review requests three days after handover</span></li>
       </ul>
     </div>
-    <div class="note">[Illustrative example. Replace with a real engagement and the client's own words.]</div>
+  </section>
+  <section class="row built">
+    <div class="cell"><b>Two assistants</b><span>Site Brief Builder catches the thinking. Studio Office writes in the designer's voice.</span></div>
+    <div class="cell"><b>Prompt library</b><span>Seventeen prompts for running the studio, twelve more for growing it.</span></div>
+    <div class="cell"><b>Four playbook cards</b><span>Site visit day. Concept and boards. Proposals, emails and schedules. The Friday half-hour.</span></div>
+    <div class="cell"><b>One subscription</b><span>Consumer tools, configured well, on the phone as much as the desk.</span></div>
   </section>
 
   <section class="row head about" id="about">
     <div class="cell"><h2>About</h2></div>
     <div class="cell">
-      <p><strong>Refit AI is run by [YOUR NAME].</strong> [One or two sentences on your background: the businesses you have worked with, the kind of problems you are drawn to, and why you work this way.]</p>
+      <p><strong>Refit AI is run by Paul Hendrie.</strong> Paul comes from teaching, and it shows in how the work is done. The client drives from twenty minutes into the first session. Every prompt is tested on their real material before training day. Mistakes are expected and designed for: correcting the assistant is using it correctly. Nothing is handed over that the owner cannot run alone.</p>
       <p>The name is deliberate. A refit keeps the hull and replaces what no longer serves it. We do not ask businesses to start again. We take what already works and rebuild the rest around it.</p>
     </div>
   </section>
 
   <section class="row contact" id="contact">
     <div class="cell" style="grid-column:span 8">
-      <h2>Start with a conversation.</h2>
+      <h2>Start with a thirty-minute call.</h2>
+      <p class="sub">Free, and diagnostic in both directions. Bring one task you put off, and what putting it off costs you.</p>
       <a class="email" href="mailto:hello@example.com">[YOUR EMAIL]</a>
     </div>
     <div class="cell side" style="grid-column:span 4">
-      <a class="btn solid" href="mailto:hello@example.com">Book a conversation</a>
+      <a class="btn solid" href="mailto:hello@example.com">Book a call</a>
     </div>
   </section>
 
 </main>
 
 <footer class="footer">
-  <span>Refit AI</span>
-  <span>[YOUR LOCATION]</span>
+  <span><svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="16" cy="16" r="12" stroke-width="1.5"/><path d="M16 4 A12 12 0 0 1 28 16" stroke-width="4"/></svg>Refit AI</span>
+  <span>United Kingdom</span>
   <ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">LinkedIn</a></li></ul>
 </footer>
 
