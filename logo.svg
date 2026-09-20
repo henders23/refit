@@ -1,4 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" aria-label="Refit AI mark">
-  <circle cx="16" cy="16" r="12" stroke-width="1.5"/>
-  <path d="M16 4 A12 12 0 0 1 28 16" stroke-width="4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" aria-label="Refit AI mark">
+  <path d="M16 4 H28 V28 H16 A12 12 0 0 1 16 4 Z" fill="currentColor" stroke="none"/>
 </svg>
