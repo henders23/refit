@@ -1,18 +1,26 @@
 # Refit AI
 
-Website for Refit AI, run by Paul Hendrie. Refit AI works with sole traders and small businesses to rebuild the processes that run them around AI: operations, marketing, customers and billing. Fixed fee, six stages, trained on the client's real work, and owned by the client from day one.
+Website for Refit AI, run by Paul Hendrie. Refit AI sets up AI tools for UK sole traders and teams of up to five, and trains them on their own work: two assistants, a prompt library and templates, three training sessions, a printed playbook and a four-week check-in. Fixed fee, and the client owns everything from day one.
 
 ## The site
 
 `index.html` is the site: a single self-contained HTML page with no build step, responsive down to phone width. Fonts (Archivo and IBM Plex Mono) load from Google Fonts. `logo.svg` is the mark, also used as the favicon and inline in the page.
 
-The design is the "Precision" direction: pure black, white type, a visible grid frame, and each section laid out as a table with a defined output per stage. No eyebrow labels above headings.
+The design is the "Precision" direction: pure black, white type, a visible grid frame, and each section laid out as a table. No eyebrow labels above headings.
 
-The content is drawn from the engagement method, consultant's handbook, growth pack and the garden design studio materials. The only remaining placeholder is `[YOUR EMAIL]` in the contact section and the two `mailto:` links.
+Page order: hero, client quote, what I refit, the first refit (case study), what you get, how it works, call to action, independence, pricing, questions, about, contact.
 
-## The mark
+## Placeholders to fill
 
-A thin ring with one quarter drawn heavy: the hull kept, one part renewed. It is a single-colour SVG and works at any size on dark or light.
+All in square brackets in `index.html`:
+
+- `[CLIENT QUOTE: …]`, `[Name], [Studio], [Town]` in the quote block
+- `[X] hours a week back` in the case study
+- `[£X,XXX]` and `[£XXX]` on the three pricing tiers, and `[£XX]` for the monthly subscription
+- `[One or two sentences on your business background …]` and `[PHOTO OF PAUL]` in About
+- `[CALENDAR LINK]` for the booking button and `[YOUR EMAIL]` (also the two `mailto:` links) in Contact
+- `[LINKEDIN URL]` in the footer
+- `[SITE URL]` in the canonical link, Open Graph tags and structured data, plus an `og.png` share image
 
 ## Earlier directions
 
