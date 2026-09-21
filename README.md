@@ -1,6 +1,6 @@
 # Refit AI
 
-Website for Refit AI, run by Paul Hendrie. Refit AI sets up AI tools for UK sole traders and teams of up to five, and trains them on their own work: two assistants, a prompt library and templates, three training sessions, a printed playbook and a four-week check-in. Fixed fee, and the client owns everything from day one.
+Website for Refit AI, run by Paul Hendrie. Refit AI sets up AI tools for UK small businesses of up to five people, and trains them on their own work: two assistants, a prompt library and templates, three training sessions, a printed playbook and a four-week check-in. Fixed fee, and the client owns everything from day one.
 
 ## The site
 
@@ -17,7 +17,7 @@ All in square brackets in `index.html`:
 - `[CLIENT QUOTE: …]`, `[Name], [Studio], [Town]` in the quote block
 - `[X] hours a week back` in the case study
 - `[£X,XXX]` and `[£XXX]` on the three pricing tiers, and `[£XX]` for the monthly subscription
-- `[One or two sentences on your business background …]` and `[PHOTO OF PAUL]` in About
+- `[PHOTO OF PAUL]` in About
 - `[CALENDAR LINK]` for the booking button and `[YOUR EMAIL]` (also the two `mailto:` links) in Contact
 - `[LINKEDIN URL]` in the footer
 - `[SITE URL]` in the canonical link, Open Graph tags and structured data, plus an `og.png` share image
